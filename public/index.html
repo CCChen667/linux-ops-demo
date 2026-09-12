@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="一个可实际部署、检测、备份和回滚的 Linux Nginx 运维演示项目。"
+    />
+    <title>江畔云维｜Linux 运维交付演示</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <script src="/assets/app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-glow page-glow-one" aria-hidden="true"></div>
+    <div class="page-glow page-glow-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="返回首页">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span>
+          <strong>江畔云维</strong>
+          <small>LINUX OPS LAB</small>
+        </span>
+      </a>
+      <nav aria-label="主导航">
+        <a href="#services">服务能力</a>
+        <a href="#delivery">交付流程</a>
+        <a href="#proof">运行验证</a>
+      </nav>
+      <a class="header-cta" href="#contact">查看交付方案</a>
+    </header>
+
+    <main id="top">
+      <section class="hero section-shell">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span></span> 张家港 · Linux 运维演示项目</p>
+          <h1>让网站稳定上线，<br /><em>也让交付有据可查。</em></h1>
+          <p class="hero-lead">
+            面向个人站点与小微业务的 Linux 部署方案：从 Nginx 配置、服务检查，
+            到备份与回滚，都整理成可复用、可验收的交付流程。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#proof">查看在线状态</a>
+            <a class="button button-secondary" href="#delivery">了解交付内容</a>
+          </div>
+          <div class="hero-note">
+            <span aria-hidden="true">i</span>
+            本站为个人技能演示，不冒充真实客户案例。
+          </div>
+        </div>
+
+        <div class="console-card reveal" aria-label="服务器运行状态示意">
+          <div class="console-topbar">
+            <div class="console-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span>ops@ubuntu:~</span>
+            <span class="live-pill"><i></i> LIVE</span>
+          </div>
+          <div class="server-visual" aria-hidden="true">
+            <svg viewBox="0 0 520 255" role="img">
+              <defs>
+                <linearGradient id="rack" x1="0" x2="1">
+                  <stop offset="0" stop-color="#172a41" />
+                  <stop offset="1" stop-color="#0b1728" />
+                </linearGradient>
+                <linearGradient id="pulse" x1="0" x2="1">
+                  <stop offset="0" stop-color="#52f0bf" />
+                  <stop offset="1" stop-color="#54a7ff" />
+                </linearGradient>
+              </defs>
+              <path class="network-line" d="M36 62H121L151 91H232" />
+              <path class="network-line line-delay" d="M486 194H398L367 164H289" />
+              <circle cx="34" cy="62" r="7" fill="#52f0bf" />
+              <circle cx="486" cy="194" r="7" fill="#54a7ff" />
+              <rect x="134" y="24" width="252" height="207" rx="18" fill="url(#rack)" stroke="#29435f" />
+              <g transform="translate(158 50)">
+                <rect width="204" height="38" rx="8" fill="#102238" stroke="#31506e" />
+                <circle cx="18" cy="19" r="4" fill="#52f0bf" />
+                <circle cx="32" cy="19" r="4" fill="#234660" />
+                <path d="M55 19h71" stroke="#365f7c" stroke-width="5" stroke-linecap="round" />
+                <path d="M151 19h31" stroke="url(#pulse)" stroke-width="5" stroke-linecap="round" />
+              </g>
+              <g transform="translate(158 107)">
+                <rect width="204" height="38" rx="8" fill="#102238" stroke="#31506e" />
+                <circle cx="18" cy="19" r="4" fill="#52f0bf" />
+                <circle cx="32" cy="19" r="4" fill="#234660" />
+                <path d="M55 19h91" stroke="#365f7c" stroke-width="5" stroke-linecap="round" />
+                <path d="M166 19h16" stroke="url(#pulse)" stroke-width="5" stroke-linecap="round" />
+              </g>
+              <g transform="translate(158 164)">
+                <rect width="204" height="38" rx="8" fill="#102238" stroke="#31506e" />
+                <circle cx="18" cy="19" r="4" fill="#52f0bf" />
+                <circle cx="32" cy="19" r="4" fill="#234660" />
+                <path d="M55 19h58" stroke="#365f7c" stroke-width="5" stroke-linecap="round" />
+                <path d="M137 19h45" stroke="url(#pulse)" stroke-width="5" stroke-linecap="round" />
+              </g>
+            </svg>
+          </div>
+          <div class="console-lines">
+            <p><span>$</span> systemctl is-active nginx</p>
+            <p class="terminal-success">active</p>
+            <p><span>$</span> curl -s /health</p>
+            <p class="terminal-json">{"status":"ok","service":"linux-ops-demo"}</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="status-strip section-shell reveal" id="proof" aria-labelledby="proof-title">
+        <div class="status-heading">
+          <p class="section-kicker">REAL-TIME CHECK</p>
+          <h2 id="proof-title">这不是效果图，服务正在运行</h2>
+        </div>
+        <div class="status-grid">
+          <article>
+            <span class="status-icon health-dot" aria-hidden="true"></span>
+            <div><small>健康检查</small><strong id="health-status">检测中…</strong></div>
+          </article>
+          <article>
+            <span class="status-icon">↯</span>
+            <div><small>本次响应</small><strong id="response-time">-- ms</strong></div>
+          </article>
+          <article>
+            <span class="status-icon">⬡</span>
+            <div><small>运行环境</small><strong>Ubuntu 24.04 · Nginx</strong></div>
+          </article>
+          <article>
+            <span class="status-icon">◷</span>
+            <div><small>检测时间</small><strong id="check-time">--:--:--</strong></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="services section-shell" id="services" aria-labelledby="services-title">
+        <div class="section-intro reveal">
+          <p class="section-kicker">SERVICE SCOPE</p>
+          <h2 id="services-title">小项目，也按正式交付来做</h2>
+          <p>适合个人主页、活动页面、企业展示站等轻量业务，重点解决“部署后没人管”的问题。</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <span class="card-number">01</span>
+            <div class="service-icon">⌘</div>
+            <h3>Linux 环境部署</h3>
+            <p>完成系统基础检查、目录规划、权限设置与常用工具安装。</p>
+            <ul><li>Ubuntu / Debian</li><li>用户与权限</li><li>基础安全检查</li></ul>
+          </article>
+          <article class="service-card featured reveal">
+            <span class="card-number">02</span>
+            <div class="service-icon">⇄</div>
+            <h3>Nginx 网站上线</h3>
+            <p>配置静态站点、反向代理、缓存策略和常用安全响应头。</p>
+            <ul><li>域名与站点配置</li><li>HTTPS 可扩展</li><li>配置语法验收</li></ul>
+          </article>
+          <article class="service-card reveal">
+            <span class="card-number">03</span>
+            <div class="service-icon">✓</div>
+            <h3>运维与故障定位</h3>
+            <p>提供健康检查、日志定位、备份和可回退的发布方式。</p>
+            <ul><li>服务状态检查</li><li>日志与端口排查</li><li>备份和回滚</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="delivery section-shell" id="delivery" aria-labelledby="delivery-title">
+        <div class="delivery-panel reveal">
+          <div class="section-intro">
+            <p class="section-kicker">DELIVERY WORKFLOW</p>
+            <h2 id="delivery-title">每一步都有结果，每一项都能验收</h2>
+          </div>
+          <ol class="timeline">
+            <li><span>1</span><div><strong>需求确认</strong><p>确认域名、服务器、技术栈与交付边界。</p></div></li>
+            <li><span>2</span><div><strong>环境检查</strong><p>记录系统、端口、磁盘、网络和已有服务。</p></div></li>
+            <li><span>3</span><div><strong>自动部署</strong><p>使用脚本发布新版本，保留历史版本。</p></div></li>
+            <li><span>4</span><div><strong>测试交付</strong><p>检查 HTTP 状态、服务日志与回滚流程。</p></div></li>
+          </ol>
+        </div>
+        <aside class="deliverables reveal">
+          <p class="section-kicker">WHAT YOU GET</p>
+          <h3>交付物清单</h3>
+          <ul>
+            <li><span>✓</span> 可访问的网站与 Nginx 配置</li>
+            <li><span>✓</span> 一键部署和健康检查脚本</li>
+            <li><span>✓</span> 备份、版本保留与回滚脚本</li>
+            <li><span>✓</span> 部署记录与验收说明</li>
+          </ul>
+          <div class="mini-terminal">
+            <span>deployment.result</span>
+            <strong>4 / 4 checks passed</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section class="cta section-shell reveal" id="contact">
+        <div>
+          <p class="section-kicker">READY TO DELIVER</p>
+          <h2>先把一件小事，稳定地做好。</h2>
+          <p>本项目的源码、配置、脚本和验收记录完整保留，可现场演示整个部署过程。</p>
+        </div>
+        <a class="button button-primary" href="#proof">检查服务状态</a>
+      </section>
+    </main>
+
+    <footer class="section-shell">
+      <p>© <span id="year"></span> 江畔云维 · Linux 运维技能演示</p>
+      <p>Built on Ubuntu 24.04 LTS / Nginx</p>
+    </footer>
+  </body>
+</html>
