@@ -2,6 +2,8 @@
 
 一个面向首单展示的 Linux + Nginx 运维交付项目。它不是虚构的客户案例，而是一套可复现、可检测、可备份、可回滚的个人技能演示。
 
+![Linux Ops Demo 首页](docs/assets/linux-ops-demo-home.png)
+
 ## 已实现
 
 - 响应式静态展示站，无外部 CDN 依赖。
@@ -21,7 +23,8 @@ linux-ops-demo/
 │   └── assets/
 ├── nginx/                  # Nginx 站点配置
 ├── scripts/                # 部署、检测、备份、回滚
-├── docs/                   # 交付清单与演示话术
+├── docs/                   # 交付清单、演示话术与验收截图
+├── .gitattributes          # 保证 Linux 脚本使用 LF 换行
 └── README.md
 ```
 
@@ -39,8 +42,8 @@ sudo bash scripts/deploy.sh
 ## 日常操作
 
 ```bash
-# 验收服务
-sudo bash scripts/health-check.sh
+# 验收服务（无需 sudo）
+bash scripts/health-check.sh
 
 # 备份到 D:\Codex\backups\linux-ops-demo
 bash scripts/backup.sh
